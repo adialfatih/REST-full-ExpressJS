@@ -82,3 +82,85 @@ query parameters
 | date       | 	(optional) filter by created_at                      |
 | page        | (optional) page number (default 1)     |
 | limit         | (optional) records per page (default 20)                 |
+
+Response:
+```bash
+{
+  "data": [ ... ],
+  "pagination": {
+    "total": 12000,
+    "page": 1,
+    "limit": 20,
+    "totalPages": 600
+  }
+}
+```
+
+### 📄 Get One by ID
+```bash
+GET /api/:table/:id
+```
+Automatically detects the correct primary key for the specified table.
+
+### ➕ Create New Record
+```bash
+POST /api/:table
+Content-Type: application/json
+```
+Example Body:
+```bash
+{
+  "nama": "Es Teh Manis",
+  "harga": 5000
+}
+```
+
+### ✏️ Update Record
+```bash
+PUT /api/:table/:id
+Content-Type: application/json
+```
+Example Body:
+```bash
+{
+  "harga": 6000
+}
+```
+
+### ❌ Delete Record
+```bash
+DELETE /api/:table/:id
+```
+
+
+## 🔐 Security Notes
+- API is protected by an API Key middleware.
+- CORS origins are restricted to only those listed in .env (ALLOWED_ORIGINS).
+- Uses helmet and compression for HTTP safety & performance.
+- Input data is not yet sanitized; use with trusted clients or enhance with validation libraries.
+
+## 🔧 Project Structure
+```bash
+.
+├── config/              # DB connection pool
+├── controllers/         # Controller logic
+├── middleware/          # API key, CORS, etc.
+├── routes/              # Route definitions
+├── services/            # Database service layer
+├── app.js               # Main application entry
+├── .env                 # Environment variables
+└── package.json
+```
+
+## 🧪 Future Enhancements
+- Swagger/OpenAPI documentation
+- Role-based access control (RBAC)
+- Data validation (Joi/Yup)
+- Rate limiting & brute-force protection
+- Caching layer (Redis)
+
+🤝 Contributing
+Feel free to fork this repo and submit pull requests. Suggestions and feedback are highly appreciated!
+
+📄 License
+MIT License
