@@ -35,7 +35,7 @@ It is optimized to handle **millions of records** with efficient querying, dynam
 
 ```bash
 git clone https://github.com/adialfatih/REST-full-ExpressJS.git
-cd yourrepo
+cd REST-full-ExpressJS
 ```
 
 ### 2.  Install Dependencies
